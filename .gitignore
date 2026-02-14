@@ -1,0 +1,51 @@
+# Virtual Environment
+whisper_env/
+venv/
+env/
+
+# Audio Files (large)
+*.wav
+*.mp3
+*.flac
+*.m4a
+*.aac
+*.ogg
+
+# Audio Datasets
+audio_dataset/
+podcasts/
+Txt_Wav/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Output files
+*.txt
+output/
+transcripts_before/
+transcripts_after/
+
+# Model cache
+.cache/
+models/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Large binary files
+*.whl
+*.egg-info/
