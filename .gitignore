@@ -2,6 +2,7 @@
 whisper_env/
 venv/
 env/
+.env
 
 # Audio Files (large)
 *.wav
