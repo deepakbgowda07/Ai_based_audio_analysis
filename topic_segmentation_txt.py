@@ -2,63 +2,61 @@ import re
 import numpy as np
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
-import matplotlib.pyplot as plt
 import os
-print("Current working directory:", os.getcwd())
+import textwrap
 
+print("Current working directory:", os.getcwd())
 
 # ==========================
 # 1️⃣ Load TXT File
 # ==========================
 
-INPUT_FILE = "audio_dataset/Txt_Wav/output_clean_audio_1.txt"
-
-OUTPUT_FILE = "audio_dataset/Txt_Wav/segmented_topics.txt"
-
-
-
+INPUT_FILE = "audio_dataset/Txt_Wav/output_Noisy_speech[26_min]_preprocessed.txt"
+OUTPUT_FILE = "audio_dataset/Txt_Wav/segmented_output_Noisy_speech[26_min]_preprocessed.txt"
 
 segments = []
-
 pattern = r"\[(\d{2}:\d{2}:\d{2})\]\s*(.*)"
 
 with open(INPUT_FILE, "r", encoding="utf-8") as f:
     for line in f:
         match = re.match(pattern, line.strip())
         if match:
-            timestamp = match.group(1)
-            text = match.group(2)
             segments.append({
-                "timestamp": timestamp,
-                "text": text
+                "timestamp": match.group(1),
+                "text": match.group(2)
             })
 
-if len(segments) < 3:
+if len(segments) < 5:
     print("Not enough segments for topic segmentation.")
     exit()
 
 print(f"Loaded {len(segments)} segments.")
 
-
 # ==========================
-# 2️⃣ Load Embedding Model
+# 2️⃣ Context-Aware Embeddings (Sliding Window)
 # ==========================
 
 print("Loading embedding model...")
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
-texts = [seg["text"] for seg in segments]
+window_size = 3
+
+window_texts = []
+for i in range(len(segments)):
+    window = " ".join(
+        segments[j]["text"]
+        for j in range(i, min(i + window_size, len(segments)))
+    )
+    window_texts.append(window)
 
 print("Generating embeddings...")
-embeddings = model.encode(texts, show_progress_bar=True)
-
+embeddings = model.encode(window_texts, show_progress_bar=True)
 
 # ==========================
 # 3️⃣ Compute Similarities
 # ==========================
 
 similarities = []
-
 for i in range(len(embeddings) - 1):
     sim = cosine_similarity(
         [embeddings[i]],
@@ -66,24 +64,45 @@ for i in range(len(embeddings) - 1):
     )[0][0]
     similarities.append(sim)
 
+similarities = np.array(similarities)
 
 # ==========================
-# 4️⃣ Detect Topic Boundaries
+# 4️⃣ Smooth Similarities (Moving Average)
 # ==========================
 
-threshold = np.percentile(similarities, 25)  #Lower percentile = fewer topics.
+def moving_average(data, k=3):
+    return np.convolve(data, np.ones(k)/k, mode='same')
 
+smoothed_similarities = moving_average(similarities, k=3)
+
+# ==========================
+# 5️⃣ Detect Topic Boundaries
+# ==========================
+
+threshold = np.percentile(smoothed_similarities, 20)
+
+raw_boundaries = [
+    i + 1 for i, sim in enumerate(smoothed_similarities)
+    if sim < threshold
+]
+
+# ==========================
+# 6️⃣ Enforce Minimum Topic Length
+# ==========================
+
+min_topic_size = 3
 boundaries = []
+last_boundary = 0
 
-for i, sim in enumerate(similarities):
-    if sim < threshold:
-        boundaries.append(i + 1)
+for b in raw_boundaries:
+    if b - last_boundary >= min_topic_size:
+        boundaries.append(b)
+        last_boundary = b
 
-print("\nDetected topic boundaries at segments:", boundaries)
-
+print("\nDetected topic boundaries:", boundaries)
 
 # ==========================
-# 5️⃣ Group Into Topics
+# 7️⃣ Group Into Topics
 # ==========================
 
 topics = []
@@ -99,20 +118,9 @@ for i, seg in enumerate(segments):
 if current_topic:
     topics.append(current_topic)
 
-
 # ==========================
-# 6️⃣ Print Topics
+# 8️⃣ Save Styled Topics
 # ==========================
-
-# ==========================
-# 6️⃣ Save Topics To File
-# ==========================
-
-# ==========================
-# 6️⃣ Save Styled Topics To File
-# ==========================
-
-import textwrap
 
 with open(OUTPUT_FILE, "w", encoding="utf-8") as out:
 
@@ -126,19 +134,16 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as out:
         end_time = topic[-1]["timestamp"]
         segment_count = len(topic)
 
-        out.write("🔹 TOPIC " + str(idx + 1) + "\n")
+        out.write(f"🔹 TOPIC {idx + 1}\n")
         out.write("-" * 60 + "\n")
         out.write(f"Time Range   : {start_time}  →  {end_time}\n")
         out.write(f"Segment Count: {segment_count}\n\n")
         out.write("Transcript:\n")
 
         for seg in topic:
-            wrapped_text = textwrap.fill(seg["text"], width=80)
-            out.write(f"• {wrapped_text}\n")
+            wrapped = textwrap.fill(seg["text"], width=80)
+            out.write(f"• {wrapped}\n")
 
         out.write("\n" + "-" * 60 + "\n\n")
 
-print(f"\nStyled topic report saved to: {OUTPUT_FILE}")
-
-
-
+print(f"\nImproved topic report saved to: {OUTPUT_FILE}")
