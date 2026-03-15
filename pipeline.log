@@ -1,0 +1,110 @@
+2026-03-12 19:38:35,363 [INFO] backend — ============================================================
+2026-03-12 19:38:35,365 [INFO] backend — AUDIO SEMANTIC SEGMENTATION PIPELINE — startup
+2026-03-12 19:38:35,365 [INFO] backend — ============================================================
+2026-03-12 19:38:35,695 [INFO] httpx — HTTP Request: GET https://huggingface.co/api/models/Systran/faster-whisper-medium.en/revision/main "HTTP/1.1 200 OK"
+2026-03-12 19:38:39,768 [INFO] backend — Whisper loaded  (CPU / int8)
+2026-03-12 19:38:39,771 [INFO] sentence_transformers.SentenceTransformer — Use pytorch device_name: cpu
+2026-03-12 19:38:39,771 [INFO] sentence_transformers.SentenceTransformer — Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-03-12 19:38:40,007 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-12 19:38:40,020 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-03-12 19:38:40,277 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-12 19:38:40,292 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-03-12 19:38:40,543 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-12 19:38:40,558 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-03-12 19:38:40,789 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-03-12 19:38:40,808 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-03-12 19:38:41,080 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-12 19:38:41,096 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-03-12 19:38:41,339 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-12 19:38:41,353 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-03-12 19:38:41,614 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-03-12 19:38:41,858 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-12 19:38:41,874 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-03-12 19:38:42,370 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-12 19:38:42,386 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-03-12 19:38:42,625 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-12 19:38:42,641 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-03-12 19:38:42,891 [INFO] httpx — HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-03-12 19:38:43,130 [INFO] httpx — HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-03-12 19:38:43,441 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-12 19:38:43,456 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-03-12 19:38:43,715 [INFO] httpx — HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-03-12 19:38:43,722 [INFO] backend — Embedding model loaded  (all-MiniLM-L6-v2)
+2026-03-12 19:38:43,963 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-12 19:38:43,976 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cardiffnlp/twitter-roberta-base-sentiment/daefdd1f6ae931839bce4d0f3db0a1a4265cd50f/config.json "HTTP/1.1 200 OK"
+2026-03-12 19:38:44,260 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-03-12 19:38:44,499 [INFO] httpx — HTTP Request: GET https://huggingface.co/api/models/cardiffnlp/twitter-roberta-base-sentiment "HTTP/1.1 200 OK"
+2026-03-12 19:38:44,754 [INFO] httpx — HTTP Request: GET https://huggingface.co/api/models/cardiffnlp/twitter-roberta-base-sentiment/commits/main "HTTP/1.1 200 OK"
+2026-03-12 19:38:45,012 [INFO] httpx — HTTP Request: GET https://huggingface.co/api/models/cardiffnlp/twitter-roberta-base-sentiment/discussions?p=0 "HTTP/1.1 200 OK"
+2026-03-12 19:38:45,120 [INFO] httpx — HTTP Request: GET https://huggingface.co/api/models/cardiffnlp/twitter-roberta-base-sentiment/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-03-12 19:38:45,263 [INFO] httpx — HTTP Request: GET https://huggingface.co/api/models/cardiffnlp/twitter-roberta-base-sentiment/commits/refs%2Fpr%2F19 "HTTP/1.1 200 OK"
+2026-03-12 19:38:45,358 [INFO] httpx — HTTP Request: GET https://huggingface.co/api/models/cardiffnlp/twitter-roberta-base-sentiment/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-03-12 19:38:45,477 [INFO] backend — Sentiment model loaded  (cardiffnlp/twitter-roberta-base-sentiment)
+2026-03-12 19:38:45,482 [INFO] backend — Persisted FAISS index loaded  (8 vectors)
+2026-03-12 19:38:45,482 [INFO] backend — All models ready.
+
+2026-03-12 19:38:45,497 [INFO] werkzeug — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.5:5000
+2026-03-12 19:38:45,497 [INFO] werkzeug — [33mPress CTRL+C to quit[0m
+2026-03-12 19:38:45,500 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment/resolve/refs%2Fpr%2F19/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-03-12 19:38:45,741 [INFO] httpx — HTTP Request: HEAD https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment/resolve/refs%2Fpr%2F19/model.safetensors "HTTP/1.1 302 Found"
+2026-03-12 19:42:09,600 [INFO] werkzeug — 127.0.0.1 - - [12/Mar/2026 19:42:09] "GET /health HTTP/1.1" 200 -
+2026-03-12 19:42:11,641 [INFO] werkzeug — 127.0.0.1 - - [12/Mar/2026 19:42:11] "[31m[1mGET /api/upload HTTP/1.1[0m" 405 -
+2026-03-12 19:42:13,688 [INFO] backend — [RAG] Query: 'test'
+2026-03-12 19:42:13,688 [INFO] backend — [FAISS] Searching for: 'test'
+2026-03-12 19:42:13,826 [INFO] backend — [FAISS] Retrieved 3 segments
+2026-03-12 19:42:13,827 [INFO] backend — [LLM] Sending to Gemini  (context_chars=2758  query='test')
+2026-03-12 19:42:13,827 [WARNING] backend — [RAG] LLM unavailable: GEMINI_API_KEY environment variable is not set.
+2026-03-12 19:42:13,828 [INFO] backend — [RAG] Response via model='none'
+2026-03-12 19:42:13,828 [INFO] werkzeug — 127.0.0.1 - - [12/Mar/2026 19:42:13] "POST /api/rag HTTP/1.1" 200 -
+2026-03-12 19:43:53,779 [INFO] werkzeug — 127.0.0.1 - - [12/Mar/2026 19:43:53] "GET /health HTTP/1.1" 200 -
+2026-03-12 19:45:27,622 [INFO] backend — [UPLOAD] Received: clean_audio1.mp3
+2026-03-12 19:45:27,657 [INFO] backend — [VALIDATE] OK  duration=390.3s  channels=2  sr=44100
+2026-03-12 19:45:27,658 [INFO] backend — [PREPROCESS] Starting: C:\Users\Kanna\AppData\Local\Temp\audio_uploads\clean_audio1.mp3
+2026-03-12 19:45:31,514 [INFO] backend — [PREPROCESS] Loaded  sr=44100  shape=(2, 16373376)
+2026-03-12 19:45:33,000 [INFO] backend — [PREPROCESS] Converted to mono
+2026-03-12 19:45:33,082 [INFO] backend — [PREPROCESS] Resampled to 16000 Hz
+2026-03-12 19:45:33,096 [INFO] backend — [PREPROCESS] Normalised amplitude
+2026-03-12 19:45:35,368 [INFO] backend — [PREPROCESS] Noise reduction applied
+2026-03-12 19:45:35,415 [INFO] backend — [PREPROCESS] Written: C:\Users\Kanna\AppData\Local\Temp\tmpxxxob9g_.wav
+2026-03-12 19:45:35,418 [INFO] backend — [TRANSCRIBE] Start: C:\Users\Kanna\AppData\Local\Temp\tmpxxxob9g_.wav
+2026-03-12 19:45:35,741 [INFO] faster_whisper — Processing audio with duration 06:11.278
+2026-03-12 19:45:36,782 [INFO] faster_whisper — VAD filter removed 00:00.000 of audio
+2026-03-12 19:49:15,492 [INFO] werkzeug — 127.0.0.1 - - [12/Mar/2026 19:49:15] "GET /health HTTP/1.1" 200 -
+2026-03-12 19:49:51,817 [INFO] backend — [TRANSCRIBE] Done — 87 sentences
+2026-03-12 19:49:51,824 [INFO] backend — [EMBEDDING] Generating for 87 sentences (window=3)
+2026-03-12 19:49:52,600 [INFO] backend — [EMBEDDING] Shape: (87, 384)
+2026-03-12 19:49:52,600 [INFO] backend — [SEGMENTATION] Detecting topic boundaries
+2026-03-12 19:49:52,653 [INFO] backend — [SEGMENTATION] 8 segments detected
+2026-03-12 19:49:53,422 [INFO] backend — [FAISS] Building index for 8 segments
+2026-03-12 19:49:53,615 [INFO] backend — [FAISS] Index saved  (8 vectors → C:\Users\Kanna\OneDrive\Desktop\INFOSYS_INTERNSHIP\whisper_project\backend\faiss_index\segments.index)
+2026-03-12 19:49:53,683 [INFO] backend — [UPLOAD] Complete — 8 segments  266.117s total  (clean_audio1.mp3)
+2026-03-12 19:49:53,690 [INFO] werkzeug — 127.0.0.1 - - [12/Mar/2026 19:49:53] "POST /api/upload HTTP/1.1" 200 -
+2026-03-12 19:52:32,525 [INFO] werkzeug — 127.0.0.1 - - [12/Mar/2026 19:52:32] "[33mGET / HTTP/1.1[0m" 404 -
+2026-03-12 19:52:32,589 [INFO] werkzeug — 127.0.0.1 - - [12/Mar/2026 19:52:32] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-03-12 19:52:38,081 [INFO] werkzeug — 127.0.0.1 - - [12/Mar/2026 19:52:38] "[33mGET / HTTP/1.1[0m" 404 -
+2026-03-12 19:52:38,135 [INFO] werkzeug — 127.0.0.1 - - [12/Mar/2026 19:52:38] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-03-12 19:52:48,652 [INFO] werkzeug — 127.0.0.1 - - [12/Mar/2026 19:52:48] "GET /health HTTP/1.1" 200 -
+2026-03-12 19:56:52,209 [INFO] backend — [UPLOAD] Received: clean_audio1.wav
+2026-03-12 19:56:52,244 [INFO] backend — [VALIDATE] OK  duration=371.3s  channels=1  sr=16000
+2026-03-12 19:56:52,245 [INFO] backend — [PREPROCESS] Starting: C:\Users\Kanna\AppData\Local\Temp\audio_uploads\clean_audio1.wav
+2026-03-12 19:56:52,269 [INFO] backend — [PREPROCESS] Loaded  sr=16000  shape=(5940454,)
+2026-03-12 19:56:52,287 [INFO] backend — [PREPROCESS] Normalised amplitude
+2026-03-12 19:56:54,177 [INFO] backend — [PREPROCESS] Noise reduction applied
+2026-03-12 19:56:54,220 [INFO] backend — [PREPROCESS] Written: C:\Users\Kanna\AppData\Local\Temp\tmp1678luv5.wav
+2026-03-12 19:56:54,232 [INFO] backend — [TRANSCRIBE] Start: C:\Users\Kanna\AppData\Local\Temp\tmp1678luv5.wav
+2026-03-12 19:56:55,670 [INFO] faster_whisper — Processing audio with duration 06:11.278
+2026-03-12 19:56:56,300 [INFO] faster_whisper — VAD filter removed 00:00.000 of audio
+2026-03-12 19:57:05,348 [INFO] werkzeug — 127.0.0.1 - - [12/Mar/2026 19:57:05] "[31m[1mGET /api/upload HTTP/1.1[0m" 405 -
+2026-03-12 20:00:51,432 [INFO] backend — [TRANSCRIBE] Done — 95 sentences
+2026-03-12 20:00:51,434 [INFO] backend — [EMBEDDING] Generating for 95 sentences (window=3)
+2026-03-12 20:00:51,912 [INFO] backend — [EMBEDDING] Shape: (95, 384)
+2026-03-12 20:00:51,913 [INFO] backend — [SEGMENTATION] Detecting topic boundaries
+2026-03-12 20:00:51,937 [INFO] backend — [SEGMENTATION] 9 segments detected
+2026-03-12 20:00:52,605 [INFO] backend — [FAISS] Building index for 9 segments
+2026-03-12 20:00:52,805 [INFO] backend — [FAISS] Index saved  (9 vectors → C:\Users\Kanna\OneDrive\Desktop\INFOSYS_INTERNSHIP\whisper_project\backend\faiss_index\segments.index)
+2026-03-12 20:00:52,808 [INFO] backend — [UPLOAD] Complete — 9 segments  240.63s total  (clean_audio1.wav)
+2026-03-12 20:00:52,811 [INFO] werkzeug — 127.0.0.1 - - [12/Mar/2026 20:00:52] "POST /api/upload HTTP/1.1" 200 -
+2026-03-12 20:04:41,180 [INFO] werkzeug — 127.0.0.1 - - [12/Mar/2026 20:04:41] "GET /health HTTP/1.1" 200 -

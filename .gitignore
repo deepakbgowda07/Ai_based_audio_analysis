@@ -50,3 +50,63 @@ Thumbs.db
 # Large binary files
 *.whl
 *.egg-info/
+node_modules
+
+
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+env/
+backend_env/
+
+# Environment variables
+.env
+
+# Node
+node_modules/
+
+# Build
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+backend_env/
+backend_env_new/
+venv/
+env/
+
+# Environment variables
+.env
+
+# Node
+node_modules/
+
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+backend_env/
+backend_env_new/
+venv/
+env/
+
+# Environment variables
+.env
+
+# Node
+node_modules/
