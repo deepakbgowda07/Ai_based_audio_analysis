@@ -169,30 +169,30 @@ Audio Upload
 
 Users can upload long-form audio files for automatic segmentation and analysis.
 
-![Upload UI](whisper_project\Screenshots\Screenshot 2026-03-15 171553.png)
+![Upload UI](./Screenshots/Screenshot%202026-03-15%20171553.png)
 
 
-![Upload UI](whisper_project\Screenshots\Screenshot 2026-03-15 171743.png)
+![Upload UI](./Screenshots/Screenshot%202026-03-15%20171743.png)
 ---
 
 ### Semantic Analysis Dashboard
 
 Generated insights include topic summaries, sentiment analysis, and keyword extraction.
 
-![Analysis Dashboard](whisper_project\Screenshots\Screenshot 2026-03-15 171755.png)
+![Analysis Dashboard](./Screenshots/Screenshot%202026-03-15%20171755.png)
 
 ### AI Summary and Key Word  Output
 
 The system generates accurate summary and keywords from uploaded audio .
 
-![AI-Summary](whisper_project\Screenshots\Screenshot 2026-03-15 171822.png)
+![AI-Summary](./Screenshots/Screenshot%202026-03-15%20171822.png)
 
 
 ### Transcription Output
 
 The system generates accurate transcripts from uploaded audio using Faster-Whisper.
 
-![Transcript](whisper_project\Screenshots\Screenshot 2026-03-15 171841.png)
+![Transcript](./Screenshots/Screenshot%202026-03-15%20171841.png)
 
 ---
 
@@ -200,7 +200,7 @@ The system generates accurate transcripts from uploaded audio using Faster-Whisp
 
 Audio is divided into semantically coherent segments with timestamps.
 
-![Segmentation](whisper_project\Screenshots\image.png)
+![Segmentation](./Screenshots/image.png)
 
 ---
 
