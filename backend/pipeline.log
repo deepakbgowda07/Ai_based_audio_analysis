@@ -1778,3 +1778,32 @@ violations {
 2026-03-15 16:59:16,238 [INFO] backend — [FAISS] Index rebuilt for new upload
 2026-03-15 16:59:16,238 [INFO] backend — [UPLOAD] Complete — 5 segments  20.29s total  (audio_lesson1_of_RAG_course_with_DeepLearningAI_mp3cut.net_2.mp3)
 2026-03-15 16:59:16,239 [INFO] werkzeug — 127.0.0.1 - - [15/Mar/2026 16:59:16] "POST /api/upload HTTP/1.1" 200 -
+2026-03-15 17:16:49,639 [INFO] backend — [UPLOAD] Received: clean_audio1.mp3
+2026-03-15 17:16:49,659 [INFO] backend — [VALIDATE] OK  duration=390.3s  channels=2  sr=44100
+2026-03-15 17:16:49,660 [INFO] backend — [PREPROCESS] Starting: C:\Users\Kanna\AppData\Local\Temp\audio_uploads\clean_audio1.mp3
+2026-03-15 17:16:50,372 [INFO] backend — [PREPROCESS] Loaded  sr=16000  shape=(5940454,)
+2026-03-15 17:16:50,386 [INFO] backend — [PREPROCESS] Normalised amplitude
+2026-03-15 17:16:50,424 [INFO] backend — [PREPROCESS] Written: C:\Users\Kanna\AppData\Local\Temp\tmpjhd1abjp.wav
+2026-03-15 17:16:50,427 [INFO] backend — [TRANSCRIBE] Start: C:\Users\Kanna\AppData\Local\Temp\tmpjhd1abjp.wav
+2026-03-15 17:16:50,844 [INFO] faster_whisper — Processing audio with duration 06:11.278
+2026-03-15 17:16:51,627 [INFO] faster_whisper — VAD filter removed 00:00.000 of audio
+2026-03-15 17:17:25,624 [INFO] backend — [TRANSCRIBE] Done — 158 sentences
+2026-03-15 17:17:25,626 [INFO] backend — [EMBEDDING] Generating for 158 sentences (window=3)
+2026-03-15 17:17:26,125 [INFO] backend — [EMBEDDING] Shape: (158, 384)
+2026-03-15 17:17:26,125 [INFO] backend — [SEGMENTATION] Detecting topic boundaries
+2026-03-15 17:17:26,159 [INFO] backend — [SEGMENTATION] 19 segments detected
+2026-03-15 17:17:26,160 [INFO] backend — [SENTIMENT] Batch analyzing 19 texts...
+2026-03-15 17:17:27,314 [INFO] backend — [SENTIMENT] Batch analysis complete
+2026-03-15 17:17:31,607 [INFO] backend — [FAISS] Building index for 19 segments
+2026-03-15 17:17:32,035 [INFO] backend — [FAISS] Index saved  (19 vectors → C:\Users\Kanna\OneDrive\Desktop\INFOSYS_INTERNSHIP\whisper_project\backend\faiss_index\segments.index)
+2026-03-15 17:17:32,035 [INFO] backend — [FAISS] Index rebuilt for new upload
+2026-03-15 17:17:32,035 [INFO] backend — [UPLOAD] Complete — 19 segments  42.444s total  (clean_audio1.mp3)
+2026-03-15 17:17:32,037 [INFO] werkzeug — 127.0.0.1 - - [15/Mar/2026 17:17:32] "POST /api/upload HTTP/1.1" 200 -
+2026-03-15 17:18:11,899 [INFO] werkzeug — 127.0.0.1 - - [15/Mar/2026 17:18:11] "OPTIONS /api/rag HTTP/1.1" 200 -
+2026-03-15 17:18:12,163 [INFO] backend — [RAG] Query: 'What are the main topics?'
+2026-03-15 17:18:12,163 [INFO] backend — [FAISS] Searching for: 'What are the main topics?'
+2026-03-15 17:18:12,173 [INFO] backend — [FAISS] Retrieved 5 segments
+2026-03-15 17:18:12,173 [INFO] backend — [LLM] Sending to Gemini  (context_chars=1399  query='What are the main topics?')
+2026-03-15 17:18:16,387 [INFO] backend — [LLM] Answer received from Gemini
+2026-03-15 17:18:16,387 [INFO] backend — [RAG] Response via model='gemini-2.5-flash'
+2026-03-15 17:18:16,388 [INFO] werkzeug — 127.0.0.1 - - [15/Mar/2026 17:18:16] "POST /api/rag HTTP/1.1" 200 -

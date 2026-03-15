@@ -135,4 +135,81 @@ python topic_segmentation.py --audio input.wav --output output.json
 
 ---
 
+
+
+
+### Processing Flow
+
+Audio Upload  
+→ Audio Preprocessing (16kHz, mono, noise reduction)  
+→ Transcription (Faster-Whisper Medium)  
+→ Text Cleaning & Sentence Splitting  
+→ Sentence Embeddings (MiniLM-L6-v2)  
+→ Cosine Similarity Analysis  
+→ Sliding Window Boundary Detection  
+→ Topic Segmentation  
+→ JSON Structured Output
+
+
+### Components
+
+| Component | Description |
+|----------|-------------|
+| Flask API | Handles audio uploads and processing requests |
+| Audio Processor | Preprocesses audio and splits large files |
+| Transcription Engine | Converts speech to text using Faster-Whisper |
+| Embedding Engine | Converts sentences to semantic vectors |
+| Segmentation Engine | Detects topic boundaries |
+| Vector Store (FAISS) | Enables semantic search and retrieval |
+| LLM Analysis (Gemini) | Generates insights and summaries |
+
+## Project Screenshots
+
+### Upload Interface
+
+Users can upload long-form audio files for automatic segmentation and analysis.
+
+![Upload UI](whisper_project\Screenshots\Screenshot 2026-03-15 171553.png)
+
+
+![Upload UI](whisper_project\Screenshots\Screenshot 2026-03-15 171743.png)
+---
+
+### Semantic Analysis Dashboard
+
+Generated insights include topic summaries, sentiment analysis, and keyword extraction.
+
+![Analysis Dashboard](whisper_project\Screenshots\Screenshot 2026-03-15 171755.png)
+
+### AI Summary and Key Word  Output
+
+The system generates accurate summary and keywords from uploaded audio .
+
+![AI-Summary](whisper_project\Screenshots\Screenshot 2026-03-15 171822.png)
+
+
+### Transcription Output
+
+The system generates accurate transcripts from uploaded audio using Faster-Whisper.
+
+![Transcript](whisper_project\Screenshots\Screenshot 2026-03-15 171841.png)
+
+---
+
+### Topic Segmentation Results
+
+Audio is divided into semantically coherent segments with timestamps.
+
+![Segmentation](whisper_project\Screenshots\image.png)
+
+---
+
+
+
+
+
+
 **Stack**: PyTorch, sentence-transformers, Faster-Whisper, FAISS (vector indexing), NumPy, Librosa
+
+
+
